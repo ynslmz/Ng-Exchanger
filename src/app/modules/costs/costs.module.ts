@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CostsRoutingModule } from './costs-routing.module';
 import { CostListComponent } from './cost-list/cost-list.component';
+import { CostService } from './cost.service';
 
 
 @NgModule({
@@ -12,6 +13,9 @@ import { CostListComponent } from './cost-list/cost-list.component';
   imports: [
     CommonModule,
     CostsRoutingModule
+  ],
+  providers: [
+    CostService
   ]
 })
 export class CostsModule { }
