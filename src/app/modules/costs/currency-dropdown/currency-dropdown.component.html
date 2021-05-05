@@ -1,0 +1,4 @@
+<select class="custom-select" (change)="onSelectionChange($event)">
+  <option *ngFor="let item of paymentCurrencies" [value]="item.toCurrency" [selected]="item.toCurrency==selected">
+    {{item.toCurrency}}</option>
+</select>

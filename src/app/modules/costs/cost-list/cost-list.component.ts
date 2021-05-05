@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { VoyageCostDetails } from 'src/app/shared/interfaces/cost.model';
+import { BaseCurrency, VoyageDetail } from 'src/app/shared/interfaces/cost.model';
+import { ExchangeRate } from 'src/app/shared/interfaces/exchange.model';
 
 @Component({
   selector: 'mcr-cost-list',
@@ -8,14 +9,22 @@ import { VoyageCostDetails } from 'src/app/shared/interfaces/cost.model';
   styleUrls: ['./cost-list.component.scss']
 })
 export class CostListComponent implements OnInit {
-  voyageDetails!: VoyageCostDetails;
+
+  voyageDetail!: VoyageDetail;
+  exchangeRate!: ExchangeRate;
+  toCurrency!: BaseCurrency;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe((data: any) => {
-      this.voyageDetails = data.voyageDetails;
+      this.voyageDetail = data.voyageDetails;
+      this.exchangeRate = data.exchangeRates;
     });
+  }
+
+  changeCalculationRate(currency: BaseCurrency) {
+    this.toCurrency = currency
   }
 
 }

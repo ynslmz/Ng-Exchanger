@@ -1,0 +1,42 @@
+<div class="row p-1">
+  <div class="col">{{costItem.name}} </div>
+  <div class="col">{{costItem.costItemAlias.accountingCode}}</div>
+
+  <div class="col text-right">
+    <mcr-cost-price-text [amount]="quoted.amount" [toCurrency]="toCurrency" [baseCurrency]="baseCurrency">
+    </mcr-cost-price-text>
+  </div>
+
+  <div class="col text-right">
+    <mcr-cost-price-input [(ngModel)]="screened.amount" [toCurrency]="toCurrency" [baseCurrency]="baseCurrency"
+      (change)="priceChanged($event)">
+    </mcr-cost-price-input>
+  </div>
+
+  <div class="col text-center">
+    <a (click)="collapse.toggle()"><i class="bi bi-chat-left"></i> {{ costItem.comments?.length || "0"}} </a> <i
+      class="bi bi-arrows-move"></i>
+  </div>
+</div>
+<div class="row p-3 bg-alternative" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+  <div class="col">
+    <div class="row" *ngFor="let cmt of costItem.comments">
+      <div class="col">
+        <span class="badge badge-pill badge-light">{{cmt.type}}</span>
+      </div>
+      <div class="col">
+        <span class="badge text-muted">
+          {{cmt.comment}}
+        </span>
+      </div>
+      <div class="col text-right">
+        <span> {{cmt.author}}</span>
+      </div>
+      <div class="col text-right">
+        <span class="p-3"> {{cmt.date | date:'d MMM yyyy HH:mm'}}
+        </span>
+        <i class="bi bi-pencil-fill p-1"></i> <i class="bi bi-trash p-1"></i>
+      </div>
+    </div>
+  </div>
+</div>

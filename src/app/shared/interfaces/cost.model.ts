@@ -16,13 +16,17 @@ export interface Annotation {
   name: string;
 }
 
-export interface Cost2 {
+export interface CostWithType {
   daStage: string;
   persona: string;
-  type: string;
+  type: CostType;
   amount: number;
 }
 
+export enum CostType {
+  Quoted = "Quoted",
+  Screened = "Screened"
+}
 export interface Comment {
   id: number;
   daStage: string;
@@ -38,19 +42,19 @@ export interface CostItem {
   name: string;
   costItemAlias: CostItemAlias;
   annotation: Annotation;
-  costs: Cost2[];
+  costs: CostWithType[];
   comments: Comment[];
 }
 
-export interface Cost {
+export interface CostGroup {
   id: number;
   name: string;
   displayOrder: number;
   costItems: CostItem[];
 }
 
-export interface VoyageCostDetails {
+export interface VoyageDetail {
   daCurrency: DaCurrency;
   baseCurrency: BaseCurrency;
-  costs: Cost[];
+  costs: CostGroup[];
 }

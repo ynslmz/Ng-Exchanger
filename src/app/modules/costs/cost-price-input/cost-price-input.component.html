@@ -1,0 +1,14 @@
+<div class="input-group mb-1">
+  <div class="input-group-prepend">
+    <span class="input-group-text bg-white border-right-0" id="currency">
+      {{ toCurrency.currency}}
+    </span>
+  </div>
+  <input type="text" class="form-control text-right border-left-0" lang="en-EN" [value]="value"
+    (change)="valChanged($event)">
+</div>
+<span class="text-secondary">
+  {{ baseCurrency.currency }}
+  {{ (_value * baseCurrency.exchangeRate).toLocaleString('en-EN', { minimumFractionDigits: 2, maximumFractionDigits: 2
+  }) }}
+</span>

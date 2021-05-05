@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CostListComponent } from './cost-list/cost-list.component';
-import { CostResolver } from './cost-list/cost.resolver';
+import { ExchangeRatesResolver } from './cost-list/exchange-rates.resolver';
+import { VoyageDetailResolver } from './cost-list/voyage-detail.resolver';
 
 const routes: Routes = [
   {
     path: '',
     component: CostListComponent,
     resolve: {
-      voyageDetails: CostResolver,
-
+      voyageDetails: VoyageDetailResolver,
+      exchangeRates: ExchangeRatesResolver
     }
   }
 ];
