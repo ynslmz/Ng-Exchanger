@@ -8,8 +8,6 @@
     </mcr-base-currency-rate-text>
   </div>
 </div>
-<div>
-  <mcr-cost-group [cost]="costItem" [baseCurrency]="voyageDetail.baseCurrency" [toCurrency]="toCurrency"
-    *ngFor="let costItem of voyageDetail.costs">
-  </mcr-cost-group>
-</div>
+<mcr-cost-group [cost]="costItem" [baseCurrency]="voyageDetail.baseCurrency" [toCurrency]="toCurrency"
+  *ngFor="let costItem of voyageDetail.costs">
+</mcr-cost-group>

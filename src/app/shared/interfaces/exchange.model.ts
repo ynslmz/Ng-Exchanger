@@ -3,7 +3,6 @@ export interface PaymentCurrency {
   toCurrency: string;
   exchangeRate: number;
 }
-
 export interface ExchangeRate {
   sourceCurrency: string;
   paymentCurrencies: PaymentCurrency[];

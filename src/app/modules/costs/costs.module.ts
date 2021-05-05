@@ -12,6 +12,7 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { CostPriceInputComponent } from './components/cost-price-input/cost-price-input.component';
 import { FormsModule } from '@angular/forms';
 import { BaseCurrencyRateTextComponent } from './components/base-currency-rate-text/base-currency-rate-text.component';
+import { CostCommentsComponent } from './components/cost-comments/cost-comments.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { BaseCurrencyRateTextComponent } from './components/base-currency-rate-t
     CurrencyDropdownComponent,
     CostPriceTextComponent,
     CostPriceInputComponent,
-    BaseCurrencyRateTextComponent
+    BaseCurrencyRateTextComponent,
+    CostCommentsComponent
   ],
   imports: [
     CommonModule,
