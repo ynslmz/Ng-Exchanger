@@ -23,8 +23,8 @@ export class CostListComponent implements OnInit {
     });
   }
 
-  changeCalculationRate(currency: BaseCurrency) {
-    this.toCurrency = currency
+  changeCalculationRate(currency: BaseCurrency): void {
+    this.toCurrency = currency;
   }
 
 }

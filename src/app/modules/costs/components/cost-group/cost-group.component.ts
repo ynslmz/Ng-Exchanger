@@ -20,12 +20,12 @@ export class CostGroupComponent implements OnInit, OnChanges {
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
     if (!!changes.cost) {
-      let cost = changes.cost.currentValue as CostGroup;
+      const cost = changes.cost.currentValue as CostGroup;
       this.calculateTotal(cost);
     }
   }
 
-  private calculateTotal(cost: CostGroup) {
+  private calculateTotal(cost: CostGroup): void {
     this.totalQuoted = 0;
     this.totalScreened = 0;
     cost.costItems.forEach(ci => ci.costs.forEach(cic => {
@@ -43,8 +43,8 @@ export class CostGroupComponent implements OnInit, OnChanges {
     );
   }
 
-  changePriceAndRecalculate(costItem: CostItem) {
-    const itemId = this.cost.costItems.findIndex(ci => ci.id == costItem.id);
+  changePriceAndRecalculate(costItem: CostItem): void {
+    const itemId = this.cost.costItems.findIndex(ci => ci.id === costItem.id);
     this.cost.costItems[itemId] = costItem;
     this.calculateTotal(this.cost);
   }

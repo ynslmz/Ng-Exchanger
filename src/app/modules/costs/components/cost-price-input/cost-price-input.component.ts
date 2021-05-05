@@ -22,14 +22,15 @@ export class CostPriceInputComponent implements OnInit, ControlValueAccessor {
   @Input() toCurrency!: BaseCurrency;
   @Input() baseCurrency!: BaseCurrency;
 
-  @Input('value') _value!: number;
-  get value(): any {
-    return (this._value * this.toCurrency.exchangeRate).toLocaleString('en-EN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  @Input('value') inputValue!: number;
 
+  get value(): any {
+    return (this.inputValue * this.toCurrency.exchangeRate).toLocaleString('en-EN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
+
   set value(val: any) {
-    this._value = Number(val.toString().replace(/,/g, '')) / this.toCurrency.exchangeRate;
-    this.onChange(this._value);
+    this.inputValue = Number(val.toString().replace(/,/g, '')) / this.toCurrency.exchangeRate;
+    this.onChange(this.inputValue);
     this.onTouch();
   }
 
@@ -38,7 +39,7 @@ export class CostPriceInputComponent implements OnInit, ControlValueAccessor {
 
   writeValue(obj: any): void {
     if (!!obj) {
-      this._value = Number(obj);
+      this.inputValue = Number(obj);
     }
   }
 
@@ -53,7 +54,7 @@ export class CostPriceInputComponent implements OnInit, ControlValueAccessor {
   ngOnInit(): void {
   }
 
-  valChanged(e: any) {
+  valChanged(e: any): void {
     this.value = e.target.value;
   }
 

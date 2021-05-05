@@ -16,11 +16,11 @@ export class CostItemComponent implements OnInit, OnChanges {
   quoted!: CostWithType;
   screened!: CostWithType;
 
-  @Output() onChanged = new EventEmitter();
+  @Output() changed = new EventEmitter();
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!!changes.costItem) {
-      let costItem: CostItem = changes.costItem.currentValue;
+      const costItem: CostItem = changes.costItem.currentValue;
       costItem.costs.forEach(cic => {
         switch (cic.type) {
           case CostType.Quoted:
@@ -40,7 +40,7 @@ export class CostItemComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
-  priceChanged(e: any) {
-    this.onChanged.next(this.costItem);
+  priceChanged(e: any): void {
+    this.changed.next(this.costItem);
   }
 }

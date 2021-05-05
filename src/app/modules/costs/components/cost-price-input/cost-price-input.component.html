@@ -8,7 +8,7 @@
     (change)="valChanged($event)">
 </div>
 <span class="text-secondary">
-  <small> {{ baseCurrency.currency }} {{ (_value * baseCurrency.exchangeRate).toLocaleString('en-EN', {
+  <small> {{ baseCurrency.currency }} {{ (inputValue * baseCurrency.exchangeRate).toLocaleString('en-EN', {
     minimumFractionDigits: 2, maximumFractionDigits: 2
     }) }}</small>
 

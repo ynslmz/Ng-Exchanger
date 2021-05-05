@@ -9,26 +9,31 @@ import { PaymentCurrency } from 'src/app/shared/interfaces/exchange.model';
 })
 export class CurrencyDropdownComponent implements OnInit {
 
-  @Input() paymentCurrencies!: PaymentCurrency[]
+  @Input() paymentCurrencies!: PaymentCurrency[];
   @Input() selected!: string;
-  @Output() onSelectionChanged = new EventEmitter<BaseCurrency>();
+  @Output() selectionChanged = new EventEmitter<BaseCurrency>();
 
   constructor() { }
 
   ngOnInit(): void {
-    this.selected!! && this.emitChange(this.selected);
+    if (!!this.selected) {
+      this.emitChange(this.selected);
+    }
   }
 
-  onSelectionChange(e: any) {
-    !!e.target.value && this.emitChange(e.target.value);
+  onSelectionChange(e: any): void {
+    if (!!e.target.value) {
+      this.emitChange(e.target.value);
+    }
   }
 
-
-  private emitChange(currency: any) {
-    const baseCurrency = this.paymentCurrencies.find(i => i.toCurrency == currency);
-    !!baseCurrency && this.onSelectionChanged.next(<BaseCurrency>{
-      currency: baseCurrency?.toCurrency,
-      exchangeRate: baseCurrency?.exchangeRate
-    });
+  private emitChange(currency: any): void {
+    const baseCurrency = this.paymentCurrencies.find(i => i.toCurrency === currency);
+    if (!!baseCurrency) {
+      this.selectionChanged.next({
+        currency: baseCurrency?.toCurrency,
+        exchangeRate: baseCurrency?.exchangeRate
+      } as BaseCurrency);
+    }
   }
 }

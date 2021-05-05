@@ -2,7 +2,7 @@
   <h4>Costs</h4>
   <div class="d-flex justify-content-end align-items-center">
     <mcr-currency-dropdown [paymentCurrencies]="exchangeRate.paymentCurrencies"
-      [selected]="voyageDetail.daCurrency.currency" (onSelectionChanged)="changeCalculationRate($event)">
+      [selected]="voyageDetail.daCurrency.currency" (selectionChanged)="changeCalculationRate($event)">
     </mcr-currency-dropdown>
     <mcr-base-currency-rate-text [baseCurrency]="voyageDetail.baseCurrency" [daCurrency]="voyageDetail.daCurrency">
     </mcr-base-currency-rate-text>

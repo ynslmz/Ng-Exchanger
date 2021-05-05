@@ -24,8 +24,8 @@ export interface CostWithType {
 }
 
 export enum CostType {
-  Quoted = "Quoted",
-  Screened = "Screened"
+  Quoted = 'Quoted',
+  Screened = 'Screened'
 }
 export interface Comment {
   id: number;
