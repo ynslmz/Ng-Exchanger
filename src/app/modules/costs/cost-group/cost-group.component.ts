@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { BaseCurrency, CostGroup, CostType, DaCurrency } from 'src/app/shared/interfaces/cost.model';
+import { ThisReceiver } from '@angular/compiler';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { BaseCurrency, CostGroup, CostItem, CostType } from 'src/app/shared/interfaces/cost.model';
 
 @Component({
   selector: 'mcr-cost-group',
@@ -20,21 +21,32 @@ export class CostGroupComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (!!changes.cost) {
       let cost = changes.cost.currentValue as CostGroup;
-      cost.costItems.forEach(ci =>
-        ci.costs.forEach(cic => {
-          switch (cic.type) {
-            case CostType.Quoted:
-              this.totalQuoted += cic.amount;
-              break;
-            case CostType.Screened:
-              this.totalScreened += cic.amount;
-              break;
-            default:
-              break;
-          }
-        })
-      )
+      this.calculateTotal(cost);
     }
+  }
+
+  private calculateTotal(cost: CostGroup) {
+    this.totalQuoted = 0;
+    this.totalScreened = 0;
+    cost.costItems.forEach(ci => ci.costs.forEach(cic => {
+      switch (cic.type) {
+        case CostType.Quoted:
+          this.totalQuoted += cic.amount;
+          break;
+        case CostType.Screened:
+          this.totalScreened += cic.amount;
+          break;
+        default:
+          break;
+      }
+    })
+    );
+  }
+
+  changePriceAndRecalculate(costItem: CostItem) {
+    const itemId = this.cost.costItems.findIndex(ci => ci.id == costItem.id);
+    this.cost.costItems[itemId] = costItem;
+    this.calculateTotal(this.cost);
   }
 
   ngOnInit(): void {

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { BaseCurrency, CostItem, CostType, CostWithType } from 'src/app/shared/interfaces/cost.model';
 
 @Component({
@@ -15,6 +15,8 @@ export class CostItemComponent implements OnInit, OnChanges {
   constructor() { }
   quoted!: CostWithType;
   screened!: CostWithType;
+
+  @Output() onChanged = new EventEmitter();
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!!changes.costItem) {
@@ -39,6 +41,6 @@ export class CostItemComponent implements OnInit, OnChanges {
   }
 
   priceChanged(e: any) {
-    console.log('price changed', e);
+    this.onChanged.next(this.costItem);
   }
 }

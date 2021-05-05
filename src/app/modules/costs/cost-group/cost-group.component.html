@@ -14,7 +14,8 @@
   <div class="col"></div>
 </div>
 <ng-container *ngFor="let costItem of cost.costItems">
-  <mcr-cost-item [baseCurrency]="baseCurrency" [toCurrency]="toCurrency" [costItem]="costItem"></mcr-cost-item>
+  <mcr-cost-item [baseCurrency]="baseCurrency" [toCurrency]="toCurrency" [costItem]="costItem"
+    (onChanged)="changePriceAndRecalculate($event)"></mcr-cost-item>
 </ng-container>
 <div class="row mt-2">
   <div class="col py-2">
