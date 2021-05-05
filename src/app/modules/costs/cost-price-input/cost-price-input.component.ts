@@ -54,9 +54,7 @@ export class CostPriceInputComponent implements OnInit, ControlValueAccessor {
   }
 
   valChanged(e: any) {
-    if (!!e.target?.value) {
-      this.value = e.target.value;
-    }
+    this.value = e.target.value;
   }
 
 }

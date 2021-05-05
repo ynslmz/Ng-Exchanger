@@ -1,12 +1,12 @@
 <span class="text-secondary">
-  {{ toCurrency.currency}}
+  <small>{{ toCurrency.currency}}</small>
 </span>
 <span class="font-weight-bold">
   {{ (amount*toCurrency.exchangeRate).toLocaleString('en-EN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}
 </span>
 <br>
 <span class="text-secondary">
-  {{ baseCurrency.currency }}
-  {{ (amount * baseCurrency.exchangeRate).toLocaleString('en-EN', { minimumFractionDigits: 2, maximumFractionDigits: 2
-  })}}
+  <small> {{ baseCurrency.currency }}
+    {{ (amount * baseCurrency.exchangeRate).toLocaleString('en-EN', { minimumFractionDigits: 2, maximumFractionDigits: 2
+    })}}</small>
 </span>
