@@ -6,7 +6,7 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { VoyageDetail } from 'src/app/shared/interfaces/cost.model';
-import { CostService } from '../cost.service';
+import { CostService } from '../../cost.service';
 
 @Injectable({
   providedIn: 'root'

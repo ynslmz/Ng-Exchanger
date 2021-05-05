@@ -1,4 +1,4 @@
-<div class="row p-1">
+<div class="row p-2">
   <div class="col">{{costItem.name}} </div>
   <div class="col">{{costItem.costItemAlias.accountingCode}}</div>
 
@@ -20,22 +20,37 @@
 </div>
 <div class="row p-3 bg-alternative" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
   <div class="col">
-    <div class="row" *ngFor="let cmt of costItem.comments">
-      <div class="col">
-        <span class="badge badge-pill badge-light">{{cmt.type}}</span>
+    <div class="row m-2" *ngFor="let cmt of costItem.comments">
+      <div class="col-1">
+        <span class="badge badge-pill"
+          [ngClass]="{'btn-light':cmt.type == 'Internal', 'btn-dark':cmt.type ==='External'}">{{cmt.type}}</span>
       </div>
       <div class="col">
-        <span class="badge text-muted">
+        <p>
           {{cmt.comment}}
-        </span>
+        </p>
       </div>
       <div class="col text-right">
-        <span> {{cmt.author}}</span>
-      </div>
-      <div class="col text-right">
+        <span class="p-3"> {{cmt.author}}</span>
         <span class="p-3"> {{cmt.date | date:'d MMM yyyy HH:mm'}}
         </span>
-        <i class="bi bi-pencil-fill p-1"></i> <i class="bi bi-trash p-1"></i>
+        <span class="p-3"><i class="bi bi-pencil-fill p-1"></i> <i class="bi bi-trash p-1"></i></span>
+      </div>
+    </div>
+  </div>
+  <div class="w-100"></div>
+  <div class="col">
+    <div class="row">
+      <div class="col-3">
+        <select class="custom-select">
+          <option>Select comment type</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" disabled>
+      </div>
+      <div class="col-1">
+        <button class="btn btn-secondary" disabled>Add</button>
       </div>
     </div>
   </div>
