@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CostsRoutingModule } from './costs-routing.module';
 import { CostListComponent } from './pages/cost-list/cost-list.component';
-import { CostService } from './cost.service';
+import { CostService } from './services/cost.service';
 import { CostItemComponent } from './components/cost-item/cost-item.component';
 import { CostGroupComponent } from './components/cost-group/cost-group.component';
 import { CurrencyDropdownComponent } from './components/currency-dropdown/currency-dropdown.component';

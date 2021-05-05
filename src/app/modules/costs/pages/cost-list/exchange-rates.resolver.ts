@@ -6,7 +6,7 @@ import {
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { ExchangeRate } from 'src/app/shared/interfaces/exchange.model';
-import { ExchangeService } from '../../exchange.service';
+import { ExchangeService } from '../../services/exchange.service';
 
 @Injectable({
   providedIn: 'root'
