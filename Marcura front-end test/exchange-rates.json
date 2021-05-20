@@ -1,0 +1,96 @@
+{
+  "sourceCurrency": "SGD",
+  "paymentCurrencies": [
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "AED",
+      "exchangeRate": 2.816829240594386
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "AUD",
+      "exchangeRate": 0.9849352170868335
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "CAD",
+      "exchangeRate": 0.9675110188534575
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "CHF",
+      "exchangeRate": 0.690255000744564
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "DKK",
+      "exchangeRate": 4.678943152519057
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "EUR",
+      "exchangeRate": 0.6292198838719976
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "GBP",
+      "exchangeRate": 0.5452027420445955
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "INR",
+      "exchangeRate": 56.51301162312449
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "JPY",
+      "exchangeRate": 80.93085122892394
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "MAD",
+      "exchangeRate": 6.727762473958943
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "NOK",
+      "exchangeRate": 6.575375439973424
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "NZD",
+      "exchangeRate": 1.0498185425375879
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "SAR",
+      "exchangeRate": 2.876077812128884
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "SEK",
+      "exchangeRate": 6.403825206488882
+    },
+    { "fromCurrency": "SGD", "toCurrency": "SGD", "exchangeRate": 1 },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "THB",
+      "exchangeRate": 23.24731866823432
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "TRY",
+      "exchangeRate": 5.666922420865854
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "USD",
+      "exchangeRate": 0.7598199759292418
+    },
+    {
+      "fromCurrency": "SGD",
+      "toCurrency": "ZAR",
+      "exchangeRate": 11.461177142808477
+    }
+  ]
+}
